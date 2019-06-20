@@ -1,7 +1,7 @@
 var notifOptions = {
     type: 'basic',
     iconUrl: '/img/icons/cricket_30.png',
-    title: 'Open the Cricbuzz Match URL',
+    title: 'Open the Cricbuzz Match URL and Reload Once.',
     message: 'Notification Turned on...'
 }
 chrome.notifications.create('installed', notifOptions);
@@ -12,7 +12,8 @@ chrome.runtime.onMessage.addListener(
             "from a content script:" + sender.tab.url :
             "from the extension");
         if (request.msg){
-            notifOptions.title = request.msg;
+            notifOptions.title = request.title;
+            notifOptions.message = request.msg;
             sendResponse({ farewell: "Notified" });
         }
         i++;
