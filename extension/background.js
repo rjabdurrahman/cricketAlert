@@ -15,9 +15,11 @@ chrome.runtime.onMessage.addListener(
             notifOptions.title = request.title;
             notifOptions.message = request.msg;
             if (request.run && request.run >= 4 && request.run < 6)
-                notifOptions.iconUrl = '/img/icons/four_48.png';
+                notifOptions.iconUrl = '/img/icons/four.png';
             else if (request.run && request.run >= 6)
-                notifOptions.iconUrl = '/img/icons/four_48.png';
+                notifOptions.iconUrl = '/img/icons/six.png';
+            else if(request.wicket)
+                notifOptions.iconUrl = '/img/icons/out.png';
             else
                 notifOptions.iconUrl = '/img/icons/cricket_30.png';
             sendResponse({ farewell: "Notified" });
