@@ -24,18 +24,19 @@ $(function () {
             var newData = document.getElementsByClassName('cb-min-bat-rw')[1].firstElementChild.textContent.split(' ')[1].split('/');
             if (newData[0] != data[0]) {
                 console.log('Current Run is ' + newData[0]);
-                chrome.runtime.sendMessage({ title: (newData[0] - data[0]) + " Runs" + " | Score " + newData[0] + '/' + newData[1], msg: "Mach is being notified!" }, function (response) {
+                var sRun = (newData[0] - data[0]) > 1 ? " Runs": " Run";
+                chrome.runtime.sendMessage({ title: (newData[0] - data[0]) + sRun + " | Score " + newData[0] + '/' + newData[1], msg: "Mach is being notified!" }, function (response) {
                     console.log(response.farewell);
                 });
             }
-            // if (newData[1] != data[1]) {
-            //     console.log('Current Run is ' + newData[0]);
-            //     chrome.runtime.sendMessage({ title: "OUT!" + " | Score" + newData[0] + '/' + newData[1], msg: "Mach is being notified!" }, function (response) {
-            //         console.log(response.farewell);
-            //     });
-            // }
+            if (newData[1] != data[1]) {
+                console.log('Current Run is ' + newData[0]);
+                chrome.runtime.sendMessage({ title: "OUT!" + " | Score" + newData[0] + '/' + newData[1], msg: "Mach is being notified!" }, function (response) {
+                    console.log(response.farewell);
+                });
+            }
             data[0] = newData[0];
-            // data[1] = newData[1];
+            data[1] = newData[1];
         }, 3000)
         // Post Nofication End
     }
