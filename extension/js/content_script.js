@@ -3,6 +3,7 @@ $(function () {
     var matchEnd = document.getElementsByClassName('cb-text-mom');
     var data = liveElements[1].firstElementChild.textContent.split(' ')[1].split('/');
     var team = liveElements[1].firstElementChild.textContent.split(' ')[0];
+    var batsman = document.getElementsByClassName('cb-min-inf cb-col-100 ng-scope')[0].textContent.split('SR')[1].split('*')[0];
     // if (matchEnd && !liveElements[0].textContent.includes('/')) {
     //     chrome.runtime.sendMessage({ title: matchEnd[0].textContent, msg: "Match Ended!" }, function (response) {
     //         console.log(response.farewell);
@@ -22,7 +23,6 @@ $(function () {
         // Initial Notificaion End
         setInterval(function () {
             var newData = document.getElementsByClassName('cb-min-bat-rw')[1].firstElementChild.textContent.split(' ')[1].split('/');
-            var batsman = document.getElementsByClassName('cb-min-inf cb-col-100 ng-scope')[0].textContent.split('SR')[1].split('*')[0];
             if (newData[0] != data[0]) {
                 var sRun = (newData[0] - data[0]) > 1 ? " Runs\n" : " Run\n";
                 chrome.runtime.sendMessage({ title: batsman + (newData[0] - data[0]) + sRun + team + " " + newData[0] + '/' + newData[1], msg: "Mach is being notified!" }, function (response) {
