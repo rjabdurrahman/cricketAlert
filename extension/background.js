@@ -14,12 +14,21 @@ chrome.runtime.onMessage.addListener(
         if (request.msg) {
             notifOptions.title = request.title;
             notifOptions.message = request.msg;
-            if (request.run && request.run >= 4 && request.run < 6)
+            if (request.run && request.run >= 4 && request.run < 6) {
                 notifOptions.iconUrl = '/img/icons/four.png';
-            else if (request.run && request.run >= 6)
+                var audio = new Audio('/audio/four.mp3');
+                audio.play();
+            }
+            else if (request.run && request.run >= 6) {
                 notifOptions.iconUrl = '/img/icons/six.png';
-            else if(request.wicket)
+                var audio = new Audio('/audio/six.mp3');
+                audio.play();
+            }
+            else if (request.wicket) {
                 notifOptions.iconUrl = '/img/icons/out.png';
+                var audio = new Audio('/audio/out.mp3');
+                audio.play();
+            }
             else
                 notifOptions.iconUrl = '/img/icons/cricket_30.png';
             sendResponse({ farewell: "Notified" });

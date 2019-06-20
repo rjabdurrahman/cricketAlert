@@ -17,7 +17,7 @@ $(function () {
     }
     else {
         // Initial Notification Start
-        chrome.runtime.sendMessage({ title: team + " " + data[0] + '/' + data[1], msg: "Mach is being notified!" }, function (response) {
+        chrome.runtime.sendMessage({ title: "Notification Enabled. Don't Exit Live Tab\n" + team + " " + data[0] + '/' + data[1], msg: "Mach is being notified!" }, function (response) {
             console.log(response.farewell);
         });
         // Initial Notificaion End
