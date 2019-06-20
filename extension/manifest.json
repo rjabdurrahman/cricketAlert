@@ -2,8 +2,8 @@
     "name": "Cricbuzz Alert",
     "version": "0.1",
     "icons": {
-        "16": "/img/icons/icon_16.png",
-        "48": "/img/icons/icon_48.png",
+        "16": "/img/icons/cricket_16.png",
+        "48": "/img/icons/cricket_30.png",
         "128": "/img/icons/icon_128.png"
     },
 
@@ -14,7 +14,7 @@
     "background": { "scripts": ["background.js"] },
     "content_scripts": [
         {
-            "matches": ["https://www.cricbuzz.com/"],
+            "matches": ["*://*.cricbuzz.com/live-cricket-scores/*"],
             "run_at": "document_idle",
             "js": [
                     "/js/external/jquery.js",
