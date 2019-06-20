@@ -2,7 +2,7 @@ var notifOptions = {
     type: 'basic',
     iconUrl: '/img/icons/cricket_30.png',
     title: 'Open the Cricbuzz Match URL and Reload Once.',
-    message: 'Notification Turned on...'
+    message: 'Enjoy notification if minimized or in other tabs.'
 }
 chrome.notifications.create('installed', notifOptions);
 var i = 0;
