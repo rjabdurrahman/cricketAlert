@@ -1,0 +1,27 @@
+{
+    "name": "Cricbuzz Alert",
+    "version": "0.1",
+    "icons": {
+        "16": "/img/icons/icon_16.png",
+        "48": "/img/icons/icon_48.png",
+        "128": "/img/icons/icon_128.png"
+    },
+
+    "description": "Open Cricbuzz Website and get alert of live score.",
+    "permissions": [
+        "notifications"
+    ],
+    "background": { "scripts": ["background.js"] },
+    "content_scripts": [
+        {
+            "matches": ["https://www.cricbuzz.com/"],
+            "run_at": "document_idle",
+            "js": [
+                    "/js/external/jquery.js",
+                    "/js/content_script.js"
+                ]
+        }
+    ],
+
+    "manifest_version": 2
+}
